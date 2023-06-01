@@ -5,10 +5,12 @@
 	"type": "module",
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-node": "^1.2.4",
 		"@sveltejs/kit": "^1.5.0",
 		"@types/better-sqlite3": "^7.6.4",
 		"better-sqlite3": "^8.4.0",
+		"eip-1193": "^0.3.4",
+		"eip-1193-json-provider": "^0.1.4",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"set-defaults": "^0.0.1",

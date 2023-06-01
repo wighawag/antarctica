@@ -2,9 +2,9 @@ import { db } from '$lib/server';
 import type { PageServerLoad } from './$types';
 
 export const load = (() => {
-	const blocks = db.getBlocks();
+	const transactions = db.getTransactions();
 
 	return {
-		blocks
+		transactions
 	};
 }) satisfies PageServerLoad;
