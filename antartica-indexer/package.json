@@ -23,18 +23,20 @@
 		"@types/fs-extra": "^11.0.1",
 		"@types/koa": "^2.13.6",
 		"@types/node": "^18.15.5",
-		"eip-1193": "^0.2.3",
+		"eip-1193": "^0.3.5",
 		"esbuild": "^0.15.5",
 		"esbuild-node-tsc": "^2.0.2",
 		"fs-extra": "^11.1.1",
 		"named-logs-console": "^0.2.3",
 		"nodemon": "^2.0.19",
+		"rimraf": "^5.0.1",
 		"tsup": "^6.7.0",
 		"typescript": "^4.9.5"
 	},
 	"scripts": {
-		"dev": "nodemon",
-		"build": "etsc",
+		"reset": "rm dev.db; pnpm run-migrations",
+		"dev": "rimraf dist && nodemon",
+		"build": "rimraf dist && etsc",
 		"lint": "ts-standard --fix",
 		"start": "node dist/main.js",
 		"run-migrations": "pnpm build && node dist/db/runMigrations.js"

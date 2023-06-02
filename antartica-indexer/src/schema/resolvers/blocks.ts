@@ -1,8 +1,8 @@
-import {builder} from '../builder';
+import {builder} from '../../builder';
 
-import {BlockObjectType, BlockObjectInput} from './typeDefs';
+import {BlockObjectType, BlockObjectInput} from '../typeDefs';
 
-builder.queryField('getBlocks', (t) =>
+builder.queryField('blocks', (t) =>
 	t.field({
 		type: [BlockObjectType],
 		resolve: async (root, args, ctx) => {
@@ -11,7 +11,7 @@ builder.queryField('getBlocks', (t) =>
 	})
 );
 
-builder.queryField('getBlock', (t) =>
+builder.queryField('block', (t) =>
 	t.field({
 		type: BlockObjectType,
 		args: {
@@ -23,7 +23,7 @@ builder.queryField('getBlock', (t) =>
 	})
 );
 
-builder.mutationField('createBlock', (t) =>
+builder.mutationField('create_block', (t) =>
 	t.field({
 		type: BlockObjectType,
 		args: {
@@ -45,7 +45,7 @@ builder.mutationField('createBlock', (t) =>
 	})
 );
 
-builder.mutationField('updateBlock', (t) =>
+builder.mutationField('update_block', (t) =>
 	t.field({
 		type: BlockObjectType,
 		args: {
@@ -69,7 +69,7 @@ builder.mutationField('updateBlock', (t) =>
 	})
 );
 
-builder.mutationField('removeBlock', (t) =>
+builder.mutationField('remove_block', (t) =>
 	t.field({
 		type: BlockObjectType,
 		args: {

@@ -13,3 +13,19 @@ export const BlockObjectInput = builder.inputType('BlockObjectInput', {
 		number: t.int({required: true}),
 	}),
 });
+
+export const TransactionObjectType = builder.simpleObject('CreateTransactionResponse', {
+	fields: (t) => ({
+		hash: t.string(),
+		from: t.string(),
+		to: t.string({nullable: true}),
+	}),
+});
+
+export const TransactionObjectInput = builder.inputType('TransactionObjectInput', {
+	fields: (t) => ({
+		hash: t.string({required: true}),
+		from: t.string({required: true}),
+		to: t.string(),
+	}),
+});

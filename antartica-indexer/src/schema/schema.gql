@@ -8,13 +8,30 @@ type CreateBlockResponse {
   number: Int!
 }
 
+type CreateTransactionResponse {
+  from: String!
+  hash: String!
+  to: String
+}
+
 type Mutation {
-  createBlock(input: BlockObjectInput!): CreateBlockResponse!
-  removeBlock(hash: String!): CreateBlockResponse!
-  updateBlock(input: BlockObjectInput!): CreateBlockResponse!
+  create_block(input: BlockObjectInput!): CreateBlockResponse!
+  create_transaction(input: TransactionObjectInput!): CreateTransactionResponse!
+  remove_block(hash: String!): CreateBlockResponse!
+  remove_transaction(hash: String!): CreateTransactionResponse!
+  update_block(input: BlockObjectInput!): CreateBlockResponse!
+  update_transaction(input: TransactionObjectInput!): CreateTransactionResponse!
 }
 
 type Query {
-  getBlock(hash: String!): CreateBlockResponse!
-  getBlocks: [CreateBlockResponse!]!
+  block(hash: String!): CreateBlockResponse!
+  blocks: [CreateBlockResponse!]!
+  transaction(hash: String!): CreateTransactionResponse!
+  transactions: [CreateTransactionResponse!]!
+}
+
+input TransactionObjectInput {
+  from: String!
+  hash: String!
+  to: String
 }
