@@ -22,7 +22,7 @@
 		"vitest": "^0.25.3"
 	},
 	"scripts": {
-		"prepare": "set-defaults .vscode && mkdir data",
+		"prepare": "set-defaults .vscode && mkdir -p data",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",

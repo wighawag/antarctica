@@ -1,3 +1,3 @@
-import {Options} from './types';
+import { Options } from './types'
 
-export async function run(options: Options) {}
+export async function run (options: Options): Promise<void> {}

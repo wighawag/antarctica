@@ -1,0 +1,20 @@
+input BlockObjectInput {
+  hash: String!
+  number: Int!
+}
+
+type CreateBlockResponse {
+  hash: String!
+  number: Int!
+}
+
+type Mutation {
+  createBlock(input: BlockObjectInput!): CreateBlockResponse!
+  removeBlock(hash: String!): CreateBlockResponse!
+  updateBlock(input: BlockObjectInput!): CreateBlockResponse!
+}
+
+type Query {
+  getBlock(hash: String!): CreateBlockResponse!
+  getBlocks: [CreateBlockResponse!]!
+}

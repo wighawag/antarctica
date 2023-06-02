@@ -4,31 +4,39 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"type": "module",
-	"main": "dist/index.cjs",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"bin": {
-		"dreveal": "dist/cli.cjs"
-	},
+	"main": "index.js",
 	"dependencies": {
+		"@pothos/core": "^3.30.0",
+		"@pothos/plugin-simple-objects": "^3.7.0",
+		"better-sqlite3": "^8.4.0",
 		"commander": "^10.0.0",
-		"ldenv": "^0.3.0",
 		"eip-1193-json-provider": "^0.1.0",
+		"graphql": "^16.6.0",
+		"graphql-yoga": "^3.9.1",
+		"koa": "^2.14.2",
+		"kysely": "^0.25.0",
+		"ldenv": "^0.3.0",
 		"named-logs": "^0.2.2"
 	},
 	"devDependencies": {
-		"named-logs-console": "^0.2.3",
+		"@types/better-sqlite3": "^7.6.4",
 		"@types/fs-extra": "^11.0.1",
+		"@types/koa": "^2.13.6",
 		"@types/node": "^18.15.5",
 		"eip-1193": "^0.2.3",
+		"esbuild": "^0.15.5",
+		"esbuild-node-tsc": "^2.0.2",
 		"fs-extra": "^11.1.1",
+		"named-logs-console": "^0.2.3",
+		"nodemon": "^2.0.19",
 		"tsup": "^6.7.0",
 		"typescript": "^4.9.5"
 	},
 	"scripts": {
-		"build": "tsup --entry src/index.ts --entry src/cli.ts --dts --format esm,cjs",
-		"dev": "tsup --entry src/index.ts --entry src/cli.ts --dts --watch --format esm,cjs",
-		"test": "ldenv -m localhost node ./dist/cli.cjs"
+		"dev": "nodemon",
+		"build": "etsc",
+		"lint": "ts-standard --fix",
+		"start": "node dist/main.js",
+		"run-migrations": "pnpm build && node dist/db/runMigrations.js"
 	}
 }
