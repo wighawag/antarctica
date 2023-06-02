@@ -29,3 +29,15 @@ export const TransactionObjectInput = builder.inputType('TransactionObjectInput'
 		to: t.string(),
 	}),
 });
+
+export const AddressObjectType = builder.simpleObject('CreateAddressResponse', {
+	fields: (t) => ({
+		address: t.string(),
+	}),
+});
+
+export const AddressObjectInput = builder.inputType('AddressObjectInput', {
+	fields: (t) => ({
+		address: t.string({required: true}),
+	}),
+});

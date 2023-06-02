@@ -16,6 +16,7 @@ const builder = new SchemaBuilder<Root<Context>>({
 });
 
 builder.queryType({});
-builder.mutationType({});
+// we do not have any mutations
+// builder.mutationType({});
 
 export {builder};

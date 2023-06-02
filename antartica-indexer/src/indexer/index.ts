@@ -54,7 +54,7 @@ export function initIndexer(db: Database, provider: EIP1193ProviderWithoutEvents
 							}
 						}
 
-						console.log(`executing transaction...`);
+						// console.log(`executing transaction...`);
 						await db.transaction().execute(async (trx) => {
 							await trx
 								.insertInto('transactions')
@@ -75,9 +75,9 @@ export function initIndexer(db: Database, provider: EIP1193ProviderWithoutEvents
 								})
 								.execute();
 						});
-						console.log(`executing transaction...`);
+						// console.log(`executing transaction...`);
 					} else {
-						console.log(`empty block ${blockNumber}`);
+						// console.log(`empty block ${blockNumber}`);
 						await db
 							.insertInto('blocks')
 							.values({

@@ -12,9 +12,14 @@ interface TransactionTable {
 	to: string | null;
 }
 
+interface AddressTable {
+	address: string;
+}
+
 interface ExplorerDatabase {
 	blocks: BlockTable;
 	transactions: TransactionTable;
+	addresses: AddressTable;
 }
 
 export type Database = Kysely<ExplorerDatabase>;
