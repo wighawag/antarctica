@@ -9,7 +9,7 @@ $: ({ GetBlocks } = data);
 
 <h1 class="is-size-1">Blocks</h1>
 
-{#if $GetBlocks.fetching}
+{#if !$GetBlocks.data || $GetBlocks.fetching}
     Fetching...
 {:else}
 <table class="table">
