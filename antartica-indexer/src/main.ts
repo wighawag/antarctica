@@ -1,8 +1,8 @@
 import Koa from 'koa';
 import {createYoga} from 'graphql-yoga';
 
-import {schema} from './schema';
-import {Context} from './builder';
+import {schema} from './graphql';
+import {Context} from './graphql/builder';
 import {db} from './db';
 
 import {initIndexer} from './indexer';

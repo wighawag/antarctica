@@ -4,4 +4,4 @@ dist/
 output.json
 dev.db
 dev.db-journal
-src/schema/schema.gql
+src/graphql/schema.gql

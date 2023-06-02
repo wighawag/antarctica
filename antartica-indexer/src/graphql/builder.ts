@@ -1,7 +1,7 @@
 import SchemaBuilder from '@pothos/core';
 import SimpleObjectsPlugin from '@pothos/plugin-simple-objects';
 
-import {db} from './db';
+import {db} from '../db';
 
 interface Root<T> {
 	Context: T;
