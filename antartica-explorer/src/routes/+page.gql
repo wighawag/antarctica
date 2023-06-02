@@ -1,5 +1,5 @@
 query GetBlocks {
-	blocks {
+	blocks(limit: 10) {
 		hash
 		number
 	}

@@ -17,7 +17,7 @@ type Query {
   address(address: String!): CreateAddressResponse!
   addresses: [CreateAddressResponse!]!
   block(hash: String!): CreateBlockResponse!
-  blocks: [CreateBlockResponse!]!
+  blocks(limit: Int!): [CreateBlockResponse!]!
   transaction(hash: String!): CreateTransactionResponse!
   transactions: [CreateTransactionResponse!]!
 }

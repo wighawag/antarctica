@@ -5,8 +5,11 @@ import {BlockObjectType} from '../typeDefs';
 builder.queryField('blocks', (t) =>
 	t.field({
 		type: [BlockObjectType],
+		args: {
+			limit: t.arg.int({required: true}),
+		},
 		resolve: async (root, args, ctx) => {
-			return await ctx.db.selectFrom('blocks').selectAll().execute();
+			return await ctx.db.selectFrom('blocks').selectAll().limit(args.limit).execute();
 		},
 	})
 );

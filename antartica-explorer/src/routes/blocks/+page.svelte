@@ -2,14 +2,14 @@
     import type { PageData } from './$houdini';
     export let data: PageData;
     
-    $: ({ GetBlocks } = data);
+    $: ({ GetBlocksPaginated } = data);
     
     </script>
     
     
     <h1 class="is-size-1">Blocks</h1>
     
-    {#if !$GetBlocks.data || $GetBlocks.fetching}
+    {#if !$GetBlocksPaginated.data || $GetBlocksPaginated.fetching}
         Fetching...
     {:else}
     <table class="table">
@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-        {#each $GetBlocks.data.blocks as block}
+        {#each $GetBlocksPaginated.data.blocks as block}
         <tr>
             <td>{block.number}</td>
             <td><a href={`/block/${block.hash}`}>{block.hash}</a></td>
