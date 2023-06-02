@@ -1,4 +1,4 @@
-# antartica, a local blockchain explorer
+# antarctica, a local blockchain explorer
 
 ## Get Started
 

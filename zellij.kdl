@@ -7,10 +7,10 @@ layout {
 			}
 			pane {
 				pane command="bash"  {
-					args "-c" "pnpm run --filter ./antartica-indexer reset; pnpm run --filter ./antartica-indexer dev; cd antartica-indexer; ${SHELL-bash}"
+					args "-c" "pnpm run --filter ./antarctica-indexer reset; pnpm run --filter ./antarctica-indexer dev; cd antarctica-indexer; ${SHELL-bash}"
 				}
 				pane command="bash"  {
-					args "-c" "pnpm run --filter ./antartica-explorer dev; cd antartica-explorer; ${SHELL-bash}"
+					args "-c" "pnpm run --filter ./antarctica-explorer dev; cd antarctica-explorer; ${SHELL-bash}"
 				}
 			}
 		}
