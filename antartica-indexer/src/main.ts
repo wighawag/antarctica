@@ -5,6 +5,9 @@ import {schema} from './schema';
 import {Context} from './builder';
 import {db} from './db';
 
+import {initIndexer} from './indexer';
+import {JSONRPCHTTPProvider} from 'eip-1193-json-provider';
+
 const app = new Koa();
 
 const graphQLServer = createYoga<Koa.ParameterizedContext>({
@@ -24,3 +27,18 @@ app.use(async (ctx) => {
 app.listen(4000, () => {
 	console.log('Running a GraphQL API server at http://localhost:4000/graphql');
 });
+
+export const provider = new JSONRPCHTTPProvider('http://127.0.0.1:8545');
+const indexer = initIndexer(db, provider);
+async function sync() {
+	console.log(`syncing...`);
+	await indexer.sync();
+	console.log(`...complete`);
+}
+
+async function onTimer() {
+	await sync();
+	setTimeout(onTimer, 1000);
+}
+
+onTimer();

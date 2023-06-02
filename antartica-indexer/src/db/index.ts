@@ -6,11 +6,13 @@ interface BlockTable {
 	number: number;
 }
 
-interface Database {
+interface ExplorerDatabase {
 	blocks: BlockTable;
 }
 
-export const db = new Kysely<Database>({
+export type Database = Kysely<ExplorerDatabase>;
+
+export const db = new Kysely<ExplorerDatabase>({
 	dialect: new SqliteDialect({
 		database: new SQLite('dev.db'),
 	}),
