@@ -34,7 +34,7 @@
 		"typescript": "^4.9.5"
 	},
 	"scripts": {
-		"reset": "rm dev.db; pnpm run-migrations",
+		"reset": "rm dev.db;rm dev.db-journal; pnpm run-migrations",
 		"dev": "rimraf dist && nodemon",
 		"build": "rimraf dist && etsc",
 		"lint": "ts-standard --fix",
