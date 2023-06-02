@@ -1,10 +1,11 @@
 {
-    "name": "antartica",
-    "private": true,
-    "devDependencies": {
-        "set-defaults": "^0.0.1"
-    },
-    "scripts": {
-        "prepare": "set-defaults .vscode"
-    }
+  "name": "antartica",
+  "private": true,
+  "devDependencies": {
+    "set-defaults": "^0.0.1"
+  },
+  "scripts": {
+    "prepare": "set-defaults .vscode",
+    "start": "zellij --layout zellij.kdl a $npm_package_name || zellij --layout zellij.kdl -s $npm_package_name"
+  }
 }

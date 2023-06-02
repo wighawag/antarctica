@@ -1,0 +1,19 @@
+layout {
+	pane {
+		pane {}
+		pane split_direction="vertical" {
+			pane command="bash"  {
+				args "-c" "anvil -b 5; ${SHELL-bash}"
+			}
+			pane {
+				pane command="bash"  {
+					args "-c" "pnpm run --filter ./antartica-indexer reset; pnpm run --filter ./antartica-indexer dev; cd antartica-indexer; ${SHELL-bash}"
+				}
+				pane command="bash"  {
+					args "-c" "pnpm run --filter ./antartica-explorer dev; cd antartica-explorer; ${SHELL-bash}"
+				}
+			}
+		}
+	}
+
+}

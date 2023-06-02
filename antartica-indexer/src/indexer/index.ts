@@ -21,9 +21,11 @@ export function initIndexer(db: Database, provider: EIP1193ProviderWithoutEvents
 			.executeTakeFirst();
 
 		if (!lastSync || lastSync.number < latestBlockNumber) {
-			console.log(`${lastSync?.number || 0} < ${latestBlockNumber}`);
+			const lastNumber = lastSync ? lastSync.number : -1;
+			console.log(`${lastNumber} < ${latestBlockNumber}`);
 
-			const start = (lastSync?.number || -1) + 1;
+			const start = lastNumber + 1;
+			console.log({start});
 			for (let blockNumber = start; blockNumber <= latestBlockNumber; blockNumber++) {
 				const blockNumberAsHex = `0x${blockNumber.toString(16)}` as `0x${string}`;
 				const block = await provider.request({

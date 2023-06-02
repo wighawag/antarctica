@@ -18,12 +18,13 @@
 		"svelte-check": "^3.4.3",
 		"tslib": "^2.5.2",
 		"typescript": "^5.1.3",
+		"wait-on": "^7.0.1",
 		"vite": "^4.3.9",
 		"vitest": "^0.31.4"
 	},
 	"scripts": {
 		"prepare": "set-defaults .vscode && mkdir -p data",
-		"dev": "vite dev",
+		"dev": "wait-on http://localhost:4000 && vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
