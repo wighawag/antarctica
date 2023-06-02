@@ -41,6 +41,18 @@ builder.queryField('block', (t) =>
 	})
 );
 
+builder.queryField('blockByNumber', (t) =>
+	t.field({
+		type: BlockObjectType,
+		args: {
+			number: t.arg.int({required: true}),
+		},
+		resolve: async (root, args, ctx) => {
+			return await ctx.db.selectFrom('blocks').selectAll().where('number', '=', args.number).executeTakeFirstOrThrow();
+		},
+	})
+);
+
 // builder.mutationField('create_block', (t) =>
 // 	t.field({
 // 		type: BlockObjectType,

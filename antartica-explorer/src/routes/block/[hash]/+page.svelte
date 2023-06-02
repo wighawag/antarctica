@@ -3,12 +3,28 @@ import type { PageData } from '../$houdini';
 export let data: PageData;
     
 $: ({ GetBlock } = data)
+
+$: block = $GetBlock.data?.block || $GetBlock.data?.blockByNumber
+
+$: previous = block && block.number - 1;
+$: next = block && block.number + 1;
 </script>
 
 <p>
-Hash: {$GetBlock.data?.block.hash}
+Hash: {block?.hash}
 </p>
 
 <p>
-Number: {$GetBlock.data?.block.number}
+Number: {block?.number}
+</p>
+
+
+{#if previous}
+<p>
+    <a href={`/block/${previous}`}>previous</a>
+</p>
+{/if}
+
+<p>
+    <a href={`/block/${next}`}>next</a>
 </p>

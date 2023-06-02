@@ -22,6 +22,7 @@ type Query {
   address(address: String!): CreateAddressResponse!
   addresses: [CreateAddressResponse!]!
   block(hash: String!): CreateBlockResponse!
+  blockByNumber(number: Int!): CreateBlockResponse!
   blocks(direction: Direction = asc, limit: Int!, offset: Int): [CreateBlockResponse!]!
   transaction(hash: String!): CreateTransactionResponse!
   transactions: [CreateTransactionResponse!]!
