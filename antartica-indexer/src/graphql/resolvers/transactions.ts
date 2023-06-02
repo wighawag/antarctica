@@ -1,6 +1,6 @@
 import {builder} from '../builder';
 
-import {TransactionObjectType, TransactionObjectInput} from '../typeDefs';
+import {TransactionObjectType} from '../typeDefs';
 
 builder.queryField('transactions', (t) =>
 	t.field({

@@ -1,6 +1,6 @@
 import {builder} from '../builder';
 
-import {BlockObjectType, BlockObjectInput} from '../typeDefs';
+import {BlockObjectType} from '../typeDefs';
 
 builder.queryField('blocks', (t) =>
 	t.field({

@@ -1,6 +1,6 @@
 import {builder} from '../builder';
 
-import {AddressObjectType, AddressObjectInput} from '../typeDefs';
+import {AddressObjectType} from '../typeDefs';
 
 builder.queryField('addresses', (t) =>
 	t.field({

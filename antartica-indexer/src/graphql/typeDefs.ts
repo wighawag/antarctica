@@ -7,12 +7,12 @@ export const BlockObjectType = builder.simpleObject('CreateBlockResponse', {
 	}),
 });
 
-export const BlockObjectInput = builder.inputType('BlockObjectInput', {
-	fields: (t) => ({
-		hash: t.string({required: true}),
-		number: t.int({required: true}),
-	}),
-});
+// export const BlockObjectInput = builder.inputType('BlockObjectInput', {
+// 	fields: (t) => ({
+// 		hash: t.string({required: true}),
+// 		number: t.int({required: true}),
+// 	}),
+// });
 
 export const TransactionObjectType = builder.simpleObject('CreateTransactionResponse', {
 	fields: (t) => ({
@@ -22,13 +22,13 @@ export const TransactionObjectType = builder.simpleObject('CreateTransactionResp
 	}),
 });
 
-export const TransactionObjectInput = builder.inputType('TransactionObjectInput', {
-	fields: (t) => ({
-		hash: t.string({required: true}),
-		from: t.string({required: true}),
-		to: t.string(),
-	}),
-});
+// export const TransactionObjectInput = builder.inputType('TransactionObjectInput', {
+// 	fields: (t) => ({
+// 		hash: t.string({required: true}),
+// 		from: t.string({required: true}),
+// 		to: t.string(),
+// 	}),
+// });
 
 export const AddressObjectType = builder.simpleObject('CreateAddressResponse', {
 	fields: (t) => ({
@@ -36,8 +36,8 @@ export const AddressObjectType = builder.simpleObject('CreateAddressResponse', {
 	}),
 });
 
-export const AddressObjectInput = builder.inputType('AddressObjectInput', {
-	fields: (t) => ({
-		address: t.string({required: true}),
-	}),
-});
+// export const AddressObjectInput = builder.inputType('AddressObjectInput', {
+// 	fields: (t) => ({
+// 		address: t.string({required: true}),
+// 	}),
+// });
