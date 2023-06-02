@@ -4,10 +4,13 @@ export let data: PageData;
     
 $: ({ GetBlock } = data)
 
-$: block = $GetBlock.data?.block || $GetBlock.data?.blockByNumber
+$: block = $GetBlock.data?.block || $GetBlock.data?.blockByNumberWithTransactions
+
+$: transactions = block && "transactions" in block && block.transactions as any[];
 
 $: previous = block && block.number - 1;
 $: next = block && block.number + 1;
+
 </script>
 
 <p>
@@ -17,6 +20,12 @@ Hash: {block?.hash}
 <p>
 Number: {block?.number}
 </p>
+
+{#if transactions}
+    {#each transactions as transaction}
+    <p><a href={`/tx/${transaction.hash}`}>{transaction.hash}</a></p>
+    {/each}
+{/if}
 
 
 {#if previous}

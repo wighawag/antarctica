@@ -4,6 +4,7 @@ export async function up(db: Kysely<any>): Promise<void> {
 	await db.schema
 		.createTable('transactions')
 		.addColumn('hash', 'text', (col) => col.primaryKey())
+		.addColumn('block_hash', 'text')
 		.addColumn('from', 'text')
 		.addColumn('to', 'text')
 		.execute();

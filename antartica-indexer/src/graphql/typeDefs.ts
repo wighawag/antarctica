@@ -7,6 +7,14 @@ export const BlockObjectType = builder.simpleObject('CreateBlockResponse', {
 	}),
 });
 
+export const BlockWithTransactionsObjectType = builder.simpleObject('CreateBlockWithTransactionsResponse', {
+	fields: (t) => ({
+		hash: t.string(),
+		number: t.int(),
+		transactions: t.field({type: [TransactionObjectType]}),
+	}),
+});
+
 // export const BlockObjectInput = builder.inputType('BlockObjectInput', {
 // 	fields: (t) => ({
 // 		hash: t.string({required: true}),
@@ -17,6 +25,7 @@ export const BlockObjectType = builder.simpleObject('CreateBlockResponse', {
 export const TransactionObjectType = builder.simpleObject('CreateTransactionResponse', {
 	fields: (t) => ({
 		hash: t.string(),
+		block_hash: t.string(),
 		from: t.string(),
 		to: t.string({nullable: true}),
 	}),

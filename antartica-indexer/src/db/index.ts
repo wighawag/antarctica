@@ -8,6 +8,7 @@ interface BlockTable {
 
 interface TransactionTable {
 	hash: string;
+	block_hash: string;
 	from: string;
 	to: string | null;
 }

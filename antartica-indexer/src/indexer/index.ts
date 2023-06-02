@@ -61,6 +61,7 @@ export function initIndexer(db: Database, provider: EIP1193ProviderWithoutEvents
 								.values(
 									transactions.map((v) => ({
 										hash: v.hash,
+										block_hash: block.hash,
 										from: v.from,
 										to: v.to,
 									}))

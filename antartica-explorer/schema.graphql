@@ -7,7 +7,14 @@ type CreateBlockResponse {
   number: Int!
 }
 
+type CreateBlockWithTransactionsResponse {
+  hash: String!
+  number: Int!
+  transactions: [CreateTransactionResponse!]!
+}
+
 type CreateTransactionResponse {
+  block_hash: String!
   from: String!
   hash: String!
   to: String
@@ -23,6 +30,7 @@ type Query {
   addresses: [CreateAddressResponse!]!
   block(hash: String!): CreateBlockResponse!
   blockByNumber(number: Int!): CreateBlockResponse!
+  blockByNumberWithTransactions(number: Int!): CreateBlockWithTransactionsResponse!
   blocks(direction: Direction = asc, limit: Int!, offset: Int): [CreateBlockResponse!]!
   transaction(hash: String!): CreateTransactionResponse!
   transactions: [CreateTransactionResponse!]!

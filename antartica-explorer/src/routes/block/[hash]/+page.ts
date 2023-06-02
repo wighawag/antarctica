@@ -7,9 +7,12 @@ export const _houdini_load = graphql`
 			hash
 			number
 		}
-		blockByNumber(number: $number) @skip(if: $isHash) {
+		blockByNumberWithTransactions(number: $number) @skip(if: $isHash) {
 			hash
 			number
+			transactions {
+				hash
+			}
 		}
 	}
 `;

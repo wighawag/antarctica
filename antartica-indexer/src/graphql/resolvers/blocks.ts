@@ -1,6 +1,6 @@
 import {builder} from '../builder';
 
-import {BlockObjectType} from '../typeDefs';
+import {BlockObjectType, BlockWithTransactionsObjectType} from '../typeDefs';
 
 export const Direction = builder.enumType('Direction', {
 	values: ['asc', 'desc'] as const,
@@ -49,6 +49,31 @@ builder.queryField('blockByNumber', (t) =>
 		},
 		resolve: async (root, args, ctx) => {
 			return await ctx.db.selectFrom('blocks').selectAll().where('number', '=', args.number).executeTakeFirstOrThrow();
+		},
+	})
+);
+
+builder.queryField('blockByNumberWithTransactions', (t) =>
+	t.field({
+		type: BlockWithTransactionsObjectType,
+		args: {
+			number: t.arg.int({required: true}),
+		},
+		resolve: async (root, args, ctx) => {
+			const block = await ctx.db
+				.selectFrom('blocks')
+				.selectAll()
+				.where('number', '=', args.number)
+				.executeTakeFirstOrThrow();
+			const transactions = await ctx.db
+				.selectFrom('transactions')
+				.selectAll()
+				.where('block_hash', '=', block.hash)
+				.execute();
+			return {
+				...block,
+				transactions,
+			};
 		},
 	})
 );
