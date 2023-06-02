@@ -6,8 +6,11 @@
     
     </script>
     
-    
     <h1 class="is-size-1">Blocks</h1>
+
+    <button on:click={() => GetBlocksPaginated.loadNextPage()}>
+        load next
+    </button>
     
     {#if !$GetBlocksPaginated.data || $GetBlocksPaginated.fetching}
         Fetching...

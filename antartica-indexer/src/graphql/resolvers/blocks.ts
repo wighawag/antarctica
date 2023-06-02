@@ -7,9 +7,15 @@ builder.queryField('blocks', (t) =>
 		type: [BlockObjectType],
 		args: {
 			limit: t.arg.int({required: true}),
+			offset: t.arg.int(),
 		},
 		resolve: async (root, args, ctx) => {
-			return await ctx.db.selectFrom('blocks').selectAll().limit(args.limit).execute();
+			return await ctx.db
+				.selectFrom('blocks')
+				.selectAll()
+				.limit(args.limit)
+				.offset(args.offset || 0)
+				.execute();
 		},
 	})
 );
