@@ -23,7 +23,7 @@ $: ({ GetBlocks } = data);
     {#each $GetBlocks.data.blocks as block}
     <tr>
         <td>{block.number}</td>
-        <td>{block.hash}</td>
+        <td><a href={`/block/${block.hash}`}>{block.hash}</a></td>
     </tr>
     {/each}
 </tbody>
