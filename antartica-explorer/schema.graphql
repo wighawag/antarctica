@@ -1,12 +1,3 @@
-input AddressObjectInput {
-  address: String!
-}
-
-input BlockObjectInput {
-  hash: String!
-  number: Int!
-}
-
 type CreateAddressResponse {
   address: String!
 }
@@ -29,10 +20,4 @@ type Query {
   blocks: [CreateBlockResponse!]!
   transaction(hash: String!): CreateTransactionResponse!
   transactions: [CreateTransactionResponse!]!
-}
-
-input TransactionObjectInput {
-  from: String!
-  hash: String!
-  to: String
 }
