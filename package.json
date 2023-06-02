@@ -1,36 +1,10 @@
 {
-	"name": "antartica",
-	"version": "0.0.1",
-	"private": true,
-	"type": "module",
-	"devDependencies": {
-		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-node": "^1.2.4",
-		"@sveltejs/kit": "^1.5.0",
-		"@types/better-sqlite3": "^7.6.4",
-		"better-sqlite3": "^8.4.0",
-		"eip-1193": "^0.3.4",
-		"eip-1193-json-provider": "^0.1.4",
-		"prettier": "^2.8.0",
-		"prettier-plugin-svelte": "^2.8.1",
-		"set-defaults": "^0.0.1",
-		"svelte": "^3.54.0",
-		"svelte-check": "^3.0.1",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.3.0",
-		"vitest": "^0.25.3"
-	},
-	"scripts": {
-		"prepare": "set-defaults .vscode && mkdir data",
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "playwright test",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check .",
-		"format": "prettier --plugin-search-dir . --write ."
-	}
+    "name": "antartica",
+    "private": true,
+    "devDependencies": {
+        "set-defaults": "^0.0.1"
+    },
+    "scripts": {
+        "prepare": "set-defaults .vscode"
+    }
 }
