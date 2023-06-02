@@ -13,11 +13,16 @@ type CreateTransactionResponse {
   to: String
 }
 
+enum Direction {
+  asc
+  desc
+}
+
 type Query {
   address(address: String!): CreateAddressResponse!
   addresses: [CreateAddressResponse!]!
   block(hash: String!): CreateBlockResponse!
-  blocks(limit: Int!, offset: Int): [CreateBlockResponse!]!
+  blocks(direction: Direction = asc, limit: Int!, offset: Int): [CreateBlockResponse!]!
   transaction(hash: String!): CreateTransactionResponse!
   transactions: [CreateTransactionResponse!]!
 }

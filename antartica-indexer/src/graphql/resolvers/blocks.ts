@@ -2,12 +2,20 @@ import {builder} from '../builder';
 
 import {BlockObjectType} from '../typeDefs';
 
+export const Direction = builder.enumType('Direction', {
+	values: ['asc', 'desc'] as const,
+});
+
 builder.queryField('blocks', (t) =>
 	t.field({
 		type: [BlockObjectType],
 		args: {
 			limit: t.arg.int({required: true}),
 			offset: t.arg.int(),
+			direction: t.arg({
+				type: Direction,
+				defaultValue: 'asc',
+			}),
 		},
 		resolve: async (root, args, ctx) => {
 			return await ctx.db
@@ -15,6 +23,7 @@ builder.queryField('blocks', (t) =>
 				.selectAll()
 				.limit(args.limit)
 				.offset(args.offset || 0)
+				.orderBy('number', args.direction || 'asc')
 				.execute();
 		},
 	})
