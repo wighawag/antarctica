@@ -14,14 +14,7 @@ type CreateTransactionResponse {
   to: String
 }
 
-type Mutation {
-  create_block(input: BlockObjectInput!): CreateBlockResponse!
-  create_transaction(input: TransactionObjectInput!): CreateTransactionResponse!
-  remove_block(hash: String!): CreateBlockResponse!
-  remove_transaction(hash: String!): CreateTransactionResponse!
-  update_block(input: BlockObjectInput!): CreateBlockResponse!
-  update_transaction(input: TransactionObjectInput!): CreateTransactionResponse!
-}
+type Mutation
 
 type Query {
   block(hash: String!): CreateBlockResponse!
