@@ -1,0 +1,38 @@
+input AddressObjectInput {
+  address: String!
+}
+
+input BlockObjectInput {
+  hash: String!
+  number: Int!
+}
+
+type CreateAddressResponse {
+  address: String!
+}
+
+type CreateBlockResponse {
+  hash: String!
+  number: Int!
+}
+
+type CreateTransactionResponse {
+  from: String!
+  hash: String!
+  to: String
+}
+
+type Query {
+  address(address: String!): CreateAddressResponse!
+  addresses: [CreateAddressResponse!]!
+  block(hash: String!): CreateBlockResponse!
+  blocks: [CreateBlockResponse!]!
+  transaction(hash: String!): CreateTransactionResponse!
+  transactions: [CreateTransactionResponse!]!
+}
+
+input TransactionObjectInput {
+  from: String!
+  hash: String!
+  to: String
+}

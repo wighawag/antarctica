@@ -1,10 +1,17 @@
-<script lang="ts"> 
-    import type { PageData } from './$types';
-    export let data: PageData;
+<script lang="ts">
+import type { PageData } from './$houdini';
+export let data: PageData;
+
+$: ({ GetBlocks } = data);
+
 </script>
+
 
 <h1 class="is-size-1">Blocks</h1>
 
+{#if $GetBlocks.fetching}
+    Fetching...
+{:else}
 <table class="table">
     <thead>
         <tr>
@@ -13,11 +20,12 @@
         </tr>
     </thead>
     <tbody>
-        {#each data.blocks as block}
-            <tr>
-                <td>{block.number}</td>
-                <td>{block.hash}</td>
-            </tr>
-        {/each}
-    </tbody>
+    {#each $GetBlocks.data.blocks as block}
+    <tr>
+        <td>{block.number}</td>
+        <td>{block.hash}</td>
+    </tr>
+    {/each}
+</tbody>
 </table>
+{/if}

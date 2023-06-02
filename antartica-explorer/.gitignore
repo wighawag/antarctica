@@ -9,3 +9,5 @@ vite.config.ts.timestamp-*
 # Editor directories and files
 .vscode/*
 !*.default
+
+$houdini

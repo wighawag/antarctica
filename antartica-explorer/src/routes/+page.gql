@@ -1,0 +1,6 @@
+query GetBlocks {
+	blocks {
+		hash
+		number
+	}
+}
